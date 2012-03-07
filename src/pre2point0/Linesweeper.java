@@ -6,6 +6,7 @@ public class Linesweeper {
 	public static void main(String[] args) {
 		String board1 = "**   ** * ";
 		play(board1);
+		//waerdthgrefas
 		// System.out.println(createView(originalTest));
 
 		// System.out.println(overwrite("mo",0, 'f'));

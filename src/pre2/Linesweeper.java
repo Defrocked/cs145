@@ -76,20 +76,23 @@ public class Linesweeper {
 		String clearedBoard = overwrite(view, index, ' ');
 		boolean clearLeft = false;
 		boolean clearRight = false;
-		int indexGap = 1;
-		while (clearLeft == false || clearRight == false) {
-			if ((index + indexGap) > (board.length() - 1)
-					|| board.charAt(index + indexGap) == '*') {
-				clearRight = true;
-			} else {
-				clearedBoard = overwrite(clearedBoard, index + indexGap, ' ');
-			}
-			if ((index - indexGap) < 0 || board.charAt(index - indexGap) == '*') {
+		int leftGap = 1;
+		int rightGap = 1;
+		while (clearLeft == false){
+			if ((index - leftGap) < 0 || board.charAt(index - leftGap) == '*') {
 				clearLeft = true;
 			} else {
-				clearedBoard = overwrite(clearedBoard, index - indexGap, ' ');
+				clearedBoard = overwrite(clearedBoard, index - leftGap, ' ');
 			}
-			indexGap = indexGap + 1;
+			leftGap = leftGap + 1;
+		}
+		while (clearRight == false) {
+			if ((index + rightGap) > (board.length() - 1) || board.charAt(index + rightGap) == '*') {
+				clearRight = true;
+			} else {
+				clearedBoard = overwrite(clearedBoard, index + rightGap, ' ');
+			}
+			rightGap = rightGap + 1;
 		}
 
 		return clearedBoard;

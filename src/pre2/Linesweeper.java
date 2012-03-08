@@ -4,26 +4,11 @@ import java.util.*;
 
 public class Linesweeper {
 	public static void main(String[] args) {
+		//yay
 		String board1 = "**   ** * ";
 		play(board1);
-		// System.out.println(createView(originalTest));
-
-		// System.out.println(overwrite("mo",0, 'f'));
-		// System.out.println(overwrite("boo",2,'p'));
-
-		// System.out.println(isBombsOnly(" * ", "?? "));
-		// System.out.println(isBombsOnly(" * ", " ??"));
-		// System.out.println(isBombsOnly("* * ", "? ??"));
-		// System.out.println(isBombsOnly("* * ", "? ? "));
-
-		// System.out.println(isBomb("** ", 0));
-		// System.out.println(isBomb("** ", 2));
-
-		// System.out.println(clear("*   *", "?????",2));
-		// System.out.println(clear(" * * ", "?????",0));
-		// System.out.println(clear("***  ", "?????",4));
 	}
-
+	
 	public static boolean isBomb(String input, int index) {
 		// if a bomb is at the index, return true, else false
 		return input.charAt(index) == '*';
@@ -103,6 +88,11 @@ public class Linesweeper {
 		Scanner in = new Scanner(System.in);
 		String view = createView(board);
 		System.out.println("Linesweeper! Here's your board, guv'na");
+		//conditional to ensure that you aren't inputting a board
+		//that is stupid and all bombs and not even a game
+		if(isBombsOnly(board, view)){
+			return false;
+		}
 		//primary loop for playing
 		while (isBombsOnly(board, view) == false) {
 			int digSite = -999;

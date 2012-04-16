@@ -2,66 +2,26 @@ package pre3;
 
 import java.util.Stack;
 
-
 public class PostOps {
 
 	public static void main(String[] args) {
 
-//		System.out.println(Math.sin(5));
-//		System.out.println(evaluate("5 sin"));
-//		System.out.println("");
-//		System.out.println(Math.cos(0.57));
-//		System.out.println(evaluate("0.57 cos"));
-//		System.out.println("");
-//		System.out.println(Math.tan(2));
-//		System.out.println(evaluate("2 tan"));
-//		System.out.println("");
-//		System.out.println(Math.sin(-3));
-//		System.out.println(evaluate("-3 sin"));
-//		System.out.println("");
-//		System.out.println(Math.cos(-3));
-//		System.out.println(evaluate("-3 cos"));
-//		System.out.println("");
-//		System.out.println(Math.tan(-3));
-//		System.out.println(evaluate("-3 tan"));
-//		System.out.println("");
-		System.out.println((5 + 7) - (3 * 8) );
-		System.out.println(evaluate("5 7 + 3 8 * -"));
-		System.out.println("");
-		//5 7 + 3 8 * -
-//		System.out.println(5);
-//		System.out.println(evaluate("5"));
-//		System.out.println("");
-//		System.out.println(5 + 6);
-//		System.out.println(evaluate("5 6 +"));
-//		System.out.println("");
-//		System.out.println(-3 - -4);
-//		System.out.println(evaluate("-3 -4 -"));
-//		System.out.println("");
-//		System.out.println(0 * 100);
-//		System.out.println(evaluate("0 100 *"));
-//		System.out.println("");
-//		System.out.println(2 + 8 );
-//		System.out.println(evaluate("2 8 +"));
-//		System.out.println("");
-//		System.out.println(26 / 13);
-//		System.out.println(evaluate("26 13 /"));
-//		System.out.println("");
+
 	}
-	
-	public static boolean contains(String[] haystack, String Needle){
-		//searches for a string in the array, true if found
-		for(int i = 0; i < haystack.length; i++){
-			if (Needle.equals(haystack[i])){
+
+	public static boolean contains(String[] haystack, String Needle) {
+		// searches for a string in the array, true if found
+		for (int i = 0; i < haystack.length; i++) {
+			if (Needle.equals(haystack[i])) {
 				return true;
 			}
 		}
 		return false;
 	}
-	
-	public static double evaluate(String expression){
+
+	public static double evaluate(String expression) {
+		//uses a stack to keep track of things because the array thing i tried before failed miserably, returns a double of the evaluated expression
 		String[] array = expression.split(" ");
-		//double[] operands = new double[array.length];
 		String[] functions = new String[7];
 		functions[0] = "+";
 		functions[1] = "-";
@@ -72,63 +32,57 @@ public class PostOps {
 		functions[6] = "tan";
 		double a = 0.0;
 		double b = 0.0;
+		double c = 0.0;
 		double converted = 0.0;
-		Stack<double> operands = new Stack();
-		for(int i = 0; i < array.length; i++){
-			if (!contains(functions, array[i])){
+		Stack<Double> operands = new Stack<Double>();
+		for (int i = 0; i < array.length; i++) {
+			if (!contains(functions, array[i])) {
 				converted = Double.parseDouble(array[i]);
 				operands.push(converted);
 			} else {
-				if (array[i].equals("+")){
-					
+				if (array[i].equals("+")) {
+					b = operands.pop();
+					a = operands.pop();
+					c = a + b;
+					operands.push(c);
+				} else if (array[i].equals("-")) {
+					b = operands.pop();
+					a = operands.pop();
+					c = a - b;
+					operands.push(c);
+				} else if (array[i].equals("*")) {
+					b = operands.pop();
+					a = operands.pop();
+					c = a * b;
+					operands.push(c);
+				} else if (array[i].equals("/")) {
+					b = operands.pop();
+					a = operands.pop();
+					c = a / b;
+					operands.push(c);
+				} else if (array[i].equals("sin")) {
+					b = operands.pop();
+					c = Math.sin(b);
+					operands.push(c);
+				} else if (array[i].equals("cos")) {
+					b = operands.pop();
+					c = Math.cos(b);
+					operands.push(c);
+				} else if (array[i].equals("tan")) {
+					b = operands.pop();
+					c = Math.tan(b);
+					operands.push(c);
 				}
 			}
-
-
-//			 else {
-//
-//				if (array[i].equals("+")){
-//					b = operands[i - 1];
-//					a = operands[i - 2];
-//					operands[i - 2] = a + b;
-//					operands[i - 1] = 0.0;
-//				}else if (array[i].equals("-")){
-//					b = operands[i - 1];
-//					a = operands[i - 2];
-//					operands[i - 2] = a - b;
-//					operands[i - 1] = 0.0;
-//				}else if (array[i].equals("*")){
-//					b = operands[i - 1];
-//					a = operands[i - 2];
-//					operands[i - 2] = a * b;
-//					operands[i - 1] = 0.0;
-//				}else if (array[i].equals("/")){
-//					b = operands[i - 1];
-//					a = operands[i - 2];
-//					operands[i - 2] = a / b;
-//					operands[i - 1] = 0.0;
-//				}else if (array[i].equals("sin")){
-//					b = operands[i - 1];
-//					operands[i - 1] = Math.sin(b);
-//				}else if (array[i].equals("cos")){
-//					b = operands[i - 1];
-//					operands[i - 1] = Math.cos(b);
-//				}else {
-//					b = operands[i - 1];
-//					operands[i - 1] = Math.tan(b);
-//				}
-//			}
-////			if (operands[i - 1] == 0 && i != 0){
-////				i = i - 1;
-////			}
-//		}
-		return operands[0];
+		}
+		return operands.pop().doubleValue();
 	}
-	
-	public static double[] evaluate(String[] expression){
-		//evaluates individual expressions within an array and returns those results in a new array
+
+	public static double[] evaluate(String[] expression) {
+		// evaluates individual expressions within an array and returns those
+		// results in a new array
 		double[] temp = new double[expression.length];
-		for (int i = 0; i < expression.length; i++){
+		for (int i = 0; i < expression.length; i++) {
 			temp[i] = evaluate(expression[i]);
 		}
 		return temp;

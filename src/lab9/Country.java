@@ -3,9 +3,9 @@ package lab9;
 public class Country {
 	private int population;
 	private double GDP;
-	public boolean hostingOlympics;
-	public String atWar;
-	public String allied;
+	private boolean hostingOlympics;
+	private String atWar;
+	private String allied;
 	
 	public Country(int popCount, double grossDomesticProduct){
 		population = popCount;
@@ -45,6 +45,7 @@ public class Country {
 	}
 	
 	public boolean isHostingOlympics(){
+		
 		return hostingOlympics;
 	}
 	

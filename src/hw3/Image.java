@@ -43,7 +43,7 @@ public class Image {
 	 * @param row
 	 */
 	public void dot(Color dotColour, int col, int row) {
-		colour[col][row] = dotColour;
+		colour[row][col] = dotColour;
 	}
 
 	/**

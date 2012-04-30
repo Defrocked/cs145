@@ -2,7 +2,6 @@ package hw3;
 
 import java.awt.Color;
 import java.io.FileNotFoundException;
-import java.io.PrintStream;
 import java.io.PrintWriter;
 
 public class Image {
@@ -37,7 +36,7 @@ public class Image {
 	}
 
 	/**
-	 * places a coloured dot at the indexed location col,row
+	 * places a colored dot at the indexed location col,row
 	 * 
 	 * @param dotColour
 	 * @param col
@@ -54,8 +53,8 @@ public class Image {
 	 * @param out2
 	 * @throws FileNotFoundException
 	 */
-	public void writeToPPM(PrintStream out2) throws FileNotFoundException {
-		PrintWriter out = new PrintWriter(out2);
+	public void writeToPPM(String path) throws FileNotFoundException {
+		PrintWriter out = new PrintWriter(path);
 		out.println("P3");
 		out.println(w + " " + h);
 		out.println("255");
@@ -67,5 +66,23 @@ public class Image {
 			}
 		}
 		out.close();
+	}
+
+	/**
+	 * gets the width of the 2D array
+	 * 
+	 * @return w
+	 */
+	public int getWidth() {
+		return w;
+	}
+
+	/**
+	 * gets the height of the 2D array
+	 * 
+	 * @return h
+	 */
+	public int getHeight() {
+		return h;
 	}
 }

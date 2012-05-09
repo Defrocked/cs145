@@ -6,5 +6,7 @@
 	<classpathentry kind="lib" path="src/pre2/speccheck_pre2 (1).jar"/>
 	<classpathentry kind="lib" path="src/hw1/speccheck_hw1.jar"/>
 	<classpathentry kind="lib" path="src/hw2/speccheck_hw2.jar"/>
+	<classpathentry kind="lib" path="src/pre3/speccheck_pre3.jar"/>
+	<classpathentry kind="lib" path="src/hw3/speccheck_hw3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

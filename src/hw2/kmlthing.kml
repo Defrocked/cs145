@@ -9,7 +9,7 @@
 <Point>
 <coordinates>-93.62562199989615,42.02334999996095</coordinates>
 </Point>
-</Placement>
+</Placemark>
 <!-- A line placemark -->
 <Placemark>
 <name>A Long Drive (For Us)</name>
@@ -18,7 +18,7 @@
 <tessellate>1</tessellate>
 <coordinates>-83.94464895362265,35.95275542714647 -87.73567499999162,40.12210099977296 -92.02611100000084,42.1641670009336</coordinates>
 </LineString>
-</Placement>
+</Placemark>
 <!-- A region placemark -->
 <Placemark>
 <name>Putnam Park, Eau Claire, WI</name>

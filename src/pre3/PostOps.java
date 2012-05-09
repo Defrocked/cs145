@@ -6,11 +6,12 @@ public class PostOps {
 
 	public static void main(String[] args) {
 
-
+		
 	}
 
 	public static boolean contains(String[] haystack, String Needle) {
 		// searches for a string in the array, true if found
+		
 		for (int i = 0; i < haystack.length; i++) {
 			if (Needle.equals(haystack[i])) {
 				return true;
@@ -20,7 +21,8 @@ public class PostOps {
 	}
 
 	public static double evaluate(String expression) {
-		//uses a stack to keep track of things because the array thing i tried before failed miserably, returns a double of the evaluated expression
+		// uses a stack to keep track of things because the array thing i tried
+		// before failed miserably, returns a double of the evaluated expression
 		String[] array = expression.split(" ");
 		String[] functions = new String[7];
 		functions[0] = "+";

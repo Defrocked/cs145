@@ -30,6 +30,7 @@ public class WasHere {
 		}
 		infoFinder.close();
 		KeyholeIO.closeKML(pw);
+		pw.close();
 	}
 
 }
